@@ -1,5 +1,51 @@
 # ServiceFile
 Service file for flask application
-A unit configuration file whose name ends in " . service " encodes information about a process controlled and supervised by systemd. It helps your application run on background, without running it.
+A unit configuration file whose name ends in `.service` encodes information about a process controlled and supervised by systemd. It helps your application run on background, without running it.
 # Create the service structure
-File should be situated in /etc/systemd/system directory.
+File should be situated in `/etc/systemd/system` directory.
+#### Description:
+- A description of your service.
+#### After:
+- Specifies the order in which services should be started. `network.target` ensures the network is available before starting your service.
+#### User and Group:
+- Specify the user and group under which your application should run. Preferably, use a non-privileged user.
+#### ExecStart:
+- Path to the executable of your application.
+#### Restart:
+- Defines the restart behavior of your service. `always` means it will be automatically restarted if it crashes.
+#### WantedBy:
+- Specifies which target this service should be started with.
+# Reload systemd:
+After creating and saving the service file, reload systemd to read the new service definition:
+
+```bash
+sudo systemctl daemon-reload
+```
+- To start the service:
+```bash
+sudo systemctl start flask_app
+```
+- To stop the service:
+```bash
+sudo systemctl stop flask_app
+```
+- To restart the service:
+```bash
+sudo systemctl restart flask_app
+```
+- To enable the service to start on boot:
+```bash
+sudo systemctl enable flask_app
+```
+- To disable the service from starting on boot:
+```bash
+sudo systemctl disable flask_app
+```
+
+# View Service Status:
+
+You can view the status of your service using:
+
+```bash
+sudo systemctl status flask_app
+```
