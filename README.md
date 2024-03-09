@@ -21,6 +21,10 @@ After creating and saving the service file, reload systemd to read the new servi
 ```bash
 sudo systemctl daemon-reload
 ```
+- To enable the service to start on boot:
+```bash
+sudo systemctl enable web_application.service
+```
 - To start the service:
 ```bash
 sudo systemctl start web_application.service
@@ -32,10 +36,6 @@ sudo systemctl stop web_application.service
 - To restart the service:
 ```bash
 sudo systemctl restart web_application.service
-```
-- To enable the service to start on boot:
-```bash
-sudo systemctl enable web_application.service
 ```
 - To disable the service from starting on boot:
 ```bash
