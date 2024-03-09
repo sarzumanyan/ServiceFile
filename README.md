@@ -23,23 +23,23 @@ sudo systemctl daemon-reload
 ```
 - To start the service:
 ```bash
-sudo systemctl start flask_app
+sudo systemctl start web_application.service
 ```
 - To stop the service:
 ```bash
-sudo systemctl stop flask_app
+sudo systemctl stop web_application.service
 ```
 - To restart the service:
 ```bash
-sudo systemctl restart flask_app
+sudo systemctl restart web_application.service
 ```
 - To enable the service to start on boot:
 ```bash
-sudo systemctl enable flask_app
+sudo systemctl enable web_application.service
 ```
 - To disable the service from starting on boot:
 ```bash
-sudo systemctl disable flask_app
+sudo systemctl disable web_application.service
 ```
 
 # View Service Status:
@@ -47,5 +47,5 @@ sudo systemctl disable flask_app
 You can view the status of your service using:
 
 ```bash
-sudo systemctl status flask_app
+sudo systemctl status web_application.service
 ```
